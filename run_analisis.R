@@ -34,5 +34,5 @@ names(Data1)<-gsub("gravity", "Gravity", names(Data1))
 
 FinalDS <- Data1 %>%
   group_by(subject, activity) %>%
-  summarise_all(funs(mean))
-write.table(FinalData, "FinalData.txt", row.name=FALSE)
+  summarise_all(mean)
+write.table(FinalDS, "./Getting and Cleaning Data Proj/FinalData.txt", row.name=FALSE)
