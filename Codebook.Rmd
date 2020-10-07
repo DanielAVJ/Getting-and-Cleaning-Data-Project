@@ -1,0 +1,43 @@
+---
+title: "Codebook"
+output: html_document
+date: 07/10/2020
+---
+
+Description of run_analysis.R script
+
+After you download the dataset and extracted under the folder called UCI HAR Dataset
+
+Read from txt format and assign each data to a first tydi variables
+features <- features.txt 
+The features selected for this database come from the accelerometer, gyroscope, 3-axial raw signals, tAcc-XYZ and tGyro-XYZ.
+activities <- activity_labels.txt
+List of activities performed when the corresponding measurements were taken and its codes
+subject_test <- test/subject_test.txt
+contains test data of 9/30 volunteer test subjects being observed
+x_test <- test/X_test.txt 
+contains recorded features test data
+y_test <- test/y_test.txt  
+contains test data of activities’code labels
+subject_train <- test/subject_train.txt
+contains train data of 21/30 volunteer subjects being observed
+x_train <- test/X_train.txt 
+contains recorded features train data
+y_train <- test/y_train.txt
+contains train data of activities’code labels
+
+Then merge the training and the test sets to create one data set
+X is created by merging x_train and x_test using rbind() function
+Y is created by merging y_train and y_test using rbind() function
+Sub is created by merging subject_train and subject_test using rbind() function
+Data is created by merging Subject, Y and X using cbind() function
+
+Extracting only the measurements on the mean and standard deviation for each measurement Data1 is created by subsetting Data, selecting only columns: subject, code and the measurements on the mean and standard deviation for each measurement
+
+Rename the data set with descriptive variable names
+code column in Data1 
+
+FinalDS (180 rows, 88 columns) is created from Data1 taking the means of each variable for each activity and each subject.
+
+Finally export FinalDS into FinalData.txt file.
+
